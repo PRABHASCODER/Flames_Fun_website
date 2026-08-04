@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Prabhas | Quant Researcher</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#080b16;color:#fff;overflow-x:hidden}
+canvas{position:fixed;inset:0;z-index:-1}
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 8%;background:rgba(0,0,0,.35);backdrop-filter:blur(10px)}
+header h2{color:#ffb347}
+nav a{color:#fff;text-decoration:none;margin-left:18px}
+nav a:hover{color:#ffb347}
+section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:90px 8%}
+.hero{text-align:center}
+.hero h1{font-size:4rem}
+.hero h3{color:#ffb347;margin:10px 0}
+.hero p{max-width:700px;margin:20px auto;color:#ddd}
+.btn{display:inline-block;padding:14px 30px;background:#ff6a00;color:#fff;text-decoration:none;border-radius:30px}
+.glass{background:rgba(255,255,255,.08);padding:30px;border-radius:20px;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(12px);box-shadow:0 0 30px rgba(255,120,0,.25)}
+.wrap{width:100%;max-width:1100px}
+.title{text-align:center;color:#ffb347;margin-bottom:25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:rgba(255,255,255,.08);padding:20px;border-radius:15px;transition:.3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 0 20px rgba(255,120,0,.6)}
+footer{text-align:center;padding:20px;background:#111}
+@media(max-width:768px){header{flex-direction:column;gap:10px}.hero h1{font-size:2.7rem}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<header>
+<h2>Prabhas</h2>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="glass">
+<h1>Prabhas</h1>
+<h3>Quant Researcher</h3>
+<p>Passionate about Quantitative Finance, C++, Python, Machine Learning, Statistics, Probability, and Algorithmic Trading.</p>
+<a class="btn" href="#about">Explore</a>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap">
+<h2 class="title">About Me</h2>
+<div class="glass">
+Aspiring Quant Researcher building intelligent trading systems, mathematical models, and AI-driven financial solutions.
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="wrap">
+<h2 class="title">Skills</h2>
+<div class="grid">
+<div class="card">Modern C++</div>
+<div class="card">Python</div>
+<div class="card">Machine Learning</div>
+<div class="card">Probability</div>
+<div class="card">Statistics</div>
+<div class="card">Financial Modeling</div>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<div class="wrap">
+<h2 class="title">Projects</h2>
+<div class="grid">
+<div class="card"><h3>Algorithmic Trading Bot</h3></div>
+<div class="card"><h3>Portfolio Optimizer</h3></div>
+<div class="card"><h3>Stock Prediction Model</h3></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="glass">
+<h2>Contact</h2>
+<p>Email: prabhas@example.com</p>
+<p>Location: India</p>
+</div>
+</section>
+
+<footer>© 2026 Prabhas | Quant Researcher</footer>
+
+<script>
+const c=document.getElementById("bg"),x=c.getContext("2d");
+function resize(){c.width=innerWidth;c.height=innerHeight}
+resize();addEventListener("resize",resize);
+const p=[...Array(120)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:2+Math.random()*5,s:1+Math.random()*3}));
+function anim(){
+x.fillStyle="#080b16";x.fillRect(0,0,c.width,c.height);
+for(const f of p){
+x.beginPath();
+x.fillStyle=`rgba(255,${120+Math.random()*100|0},0,.45)`;
+x.arc(f.x,f.y,f.r,0,Math.PI*2);
+x.fill();
+f.y-=f.s;
+f.x+=Math.sin(f.y/40);
+if(f.y<-10){f.y=c.height+10;f.x=Math.random()*c.width;}
+}
+requestAnimationFrame(anim);
+}
+anim();
+</script>
+</body>
+</html>
